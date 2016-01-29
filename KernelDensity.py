@@ -40,3 +40,14 @@ for data_point in dataset:
     
     plt.ylim(0,1)   
     
+sum_of_kde = np.sum(kernel_list,axis=0)
+
+fig = plt.plot(x_axis,sum_of_kde,color='indianred')
+
+sns.rugplot(dataset)
+
+plt.yticks([])
+
+plt.suptitle("Sum o fthe basis functions")
+
+
