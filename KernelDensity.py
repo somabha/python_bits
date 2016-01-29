@@ -48,6 +48,6 @@ sns.rugplot(dataset)
 
 plt.yticks([])
 
-plt.suptitle("Sum o fthe basis functions")
+plt.suptitle("Sum of the basis functions")
 
 
