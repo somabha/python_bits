@@ -13,8 +13,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Command so tha the plots appear in the iPython Notebook
-%matplotlib inline
+
 
 dataset = randn(25)
 sns.rugplot(dataset)
