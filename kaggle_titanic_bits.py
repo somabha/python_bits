@@ -31,4 +31,22 @@ sns.factorplot(x='person',y='Survived', col='Pclass', data=titanic_df,saturation
 ...                    kind="bar", ci=None, aspect=.6).set_xticklabels(["Men","Women","Children"]).set_titles("{col_name}{col_var}")
 
 
+fig = sns.FacetGrid(titanic_df,hue='Sex',aspect=3)
+fig.map(sns.kdeplot,'Age',shade=True)
+
+oldest = titanic_df['Age'].max()
+
+fig.set(xlim=(0,oldest))
+
+fig.add_legend()
+
+fig = sns.FacetGrid(titanic_df,hue='person',aspect=3)
+fig.map(sns.kdeplot,'Age',shade=True)
+
+oldest = titanic_df['Age'].max()
+
+fig.set(xlim=(0,oldest))
+
+fig.add_legend()
+
 
