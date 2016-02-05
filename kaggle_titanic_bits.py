@@ -49,4 +49,17 @@ fig.set(xlim=(0,oldest))
 
 fig.add_legend()
 
+titanic_df['Emabrked'] = titanic_df['Embarked'].fillna("S")
+sns.factorplot('Embarked','Survived',data=titanic_df,size=4,aspect=3)
 
+embark_perc = titanic_df[["Embarked", "Survived"]].groupby(["Embarked"],as_index=False).mean()
+sns.set_style("whitegrid")
+sns.barplot(x="Embarked",y="Survived",data=embark_perc,order=['S','C','Q'])
+
+titanic_df['Alone'] = titanic_df.SibSp + titanic_df.Parch
+titanic_df['Alone'].loc[titanic_df['Alone'] >0] = 'With Family'
+titanic_df['Alone'].loc[titanic_df['Alone'] == 0] = 'Alone'
+sns.barplot(x='Alone',y='Age',data=titanic_df)
+
+titanic_df['Survivor'] = titanic_df.Survived.map({0:'no',1:'yes'})
+sns.factorplot(x='Pclass',y='Survived',hue='person', data=titanic_df,order=[1,2,3])
