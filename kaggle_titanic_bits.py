@@ -63,3 +63,7 @@ sns.barplot(x='Alone',y='Age',data=titanic_df)
 
 titanic_df['Survivor'] = titanic_df.Survived.map({0:'no',1:'yes'})
 sns.factorplot(x='Pclass',y='Survived',hue='person', data=titanic_df,order=[1,2,3])
+
+
+
+
